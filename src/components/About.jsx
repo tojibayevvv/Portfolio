@@ -1,14 +1,18 @@
+import { Reactjs, FullStackIcon, ServerDB, DesignIcon } from '../assets/icons.jsx'
+import palmHi from '../assets/hiEmoji.png'
+import fire from '../assets/fire.png'
+
+
 const highlights = [
-  { icon: '⚡', label: 'React.js Expert', desc: 'Hooks, Context, Redux, React Query' },
-  { icon: '🔧', label: 'Full-Stack Ready', desc: 'Node, Express, REST & GraphQL APIs' },
-  { icon: '🗄️', label: 'Database Fluent', desc: 'SQL, MongoDB, Supabase, PostgreSQL' },
-  { icon: '🎨', label: 'UI Craftsman',   desc: 'Tailwind, Figma-to-Code, Animations' },
+  { icon: <Reactjs />, label: 'React.js Expert', desc: 'Hooks, Context, Redux, React Query' },
+  { icon: <FullStackIcon />, label: 'Full-Stack Ready', desc: 'Node, Express, REST & GraphQL APIs' },
+  { icon: <ServerDB />, label: 'Database Fluent', desc: 'SQL, MongoDB, Supabase, PostgreSQL' },
+  { icon: <DesignIcon />, label: 'UI Craftsman', desc: 'Tailwind, Figma-to-Code, Animations' },
 ];
 
 export default function About() {
   return (
     <section id="about" className="relative py-28 overflow-hidden">
-      {/* Blob */}
       <div className="absolute w-96 h-96 rounded-full bg-orange-600/8 blur-[130px] right-0 top-0 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6">
@@ -23,7 +27,7 @@ export default function About() {
             {/* Front card */}
             <div className="relative w-60 h-72 bg-[#212121] border border-[#FF4D00]/20 rounded-2xl rotate-[-2deg] flex flex-col items-center justify-center gap-4 shadow-2xl">
               <div className="w-16 h-16 rounded-2xl bg-[#FF4D00]/10 border border-[#FF4D00]/25 flex items-center justify-center text-3xl">
-                🚀
+                <img src={fire} alt="fire emoji" />
               </div>
               <p className="font-syne font-bold text-white text-lg">Frontend Dev</p>
               <p className="text-[#555] text-xs font-syne uppercase tracking-widest">React Specialist</p>
@@ -44,8 +48,12 @@ export default function About() {
               Building interfaces<br />
               <span className="text-[#FF4D00]">people love</span> to use
             </h2>
+            <div className='flex items-center gap-2 text-[#777]'>
+              <p>Hi!</p>
+              <img src={palmHi} alt="hi!" className='w-[25px]' />
+            </div>
             <p className="text-[#777] text-base leading-relaxed mb-4">
-              I'm a Frontend Developer with a deep passion for React.js and modern web technologies.
+              My name's <span className="text-[#FF4D00]">Abdulloh</span>, I'm a Frontend Developer with a deep passion for React.js and modern web technologies.
               I specialize in building performant, accessible, and visually compelling web applications
               that deliver real value to users and businesses alike.
             </p>
@@ -60,11 +68,23 @@ export default function About() {
               {highlights.map(({ icon, label, desc }) => (
                 <div
                   key={label}
-                  className="group bg-[#141414] hover:bg-[#1a1a1a] border border-white/6 hover:border-[#FF4D00]/25 rounded-xl p-4 transition-all duration-300 hover:-translate-y-1"
+                  className="group bg-[#141414] hover:bg-[#1a1a1a] border border-white/6 hover:border-[#FF4D00]/25 
+                  rounded-xl p-5 min-h-[160px] flex flex-col transition-all duration-300 hover:-translate-y-1"
                 >
-                  <span className="text-2xl mb-3 block">{icon}</span>
-                  <p className="font-syne font-bold text-white text-sm mb-1">{label}</p>
-                  <p className="text-[#555] text-xs leading-relaxed">{desc}</p>
+                  <span className="w-[40px] h-[40px] flex items-start justify-start">
+                    {icon}
+                  </span>
+
+                  {/* Push content to bottom */}
+                  <div className="mt-auto">
+                    <p className="font-syne font-bold text-white text-sm mb-1">
+                      {label}
+                    </p>
+
+                    <p className="text-[#555] text-xs leading-relaxed">
+                      {desc}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
