@@ -1,40 +1,42 @@
+import { Api, Figma, Github, Html5, JavaScript, MySql, Reactjs, Supabase, TypeScript, Vite, FullStackIcon, DesignIcon, Expressjs, ServerDB,  } from "../assets/icons";
+
 const skillGroups = [
   {
     category: 'Frontend',
     color: '#FF4D00',
     skills: [
-      { name: 'React.js',      level: 95, icon: '⚛️' },
-      { name: 'JavaScript',    level: 92, icon: '🟨' },
-      { name: 'TypeScript',    level: 80, icon: '🔷' },
-      { name: 'Tailwind CSS',  level: 90, icon: '💨' },
-      { name: 'HTML / CSS',    level: 95, icon: '🎨' },
+      { name: 'React.js', icon: <Reactjs /> },
+      { name: 'JavaScript', icon: <JavaScript/> },
+      { name: 'TypeScript', icon: <TypeScript/> },
+      { name: 'Tailwind CSS', icon: <DesignIcon/> },
+      { name: 'HTML / CSS', icon: <Html5/> },
     ],
   },
   {
     category: 'Backend',
     color: '#FFD600',
     skills: [
-      { name: 'Node.js',       level: 82, icon: '🟢' },
-      { name: 'Express.js',    level: 80, icon: '🚂' },
-      { name: 'REST APIs',     level: 85, icon: '🔗' },
+      { name: 'Node.js', icon: <FullStackIcon/> },
+      { name: 'Express.js', icon: <Expressjs/> },
+      { name: 'REST APIs', icon: <Api/> },
     ],
   },
   {
     category: 'Database',
     color: '#22C55E',
     skills: [
-      { name: 'SQL',           level: 78, icon: '🗃️' },
-      { name: 'Supabase',      level: 80, icon: '⚡' },
-      { name: 'MongoDB',       level: 75, icon: '🍃' },
+      { name: 'SQL', icon: <MySql/> },
+      { name: 'Supabase', icon: <Supabase/> },
+      { name: 'MongoDB', icon: <ServerDB/> },
     ],
   },
   {
     category: 'Tools',
     color: '#818CF8',
     skills: [
-      { name: 'Git / GitHub',  level: 88, icon: '🐙' },
-      { name: 'Figma',         level: 72, icon: '🎭' },
-      { name: 'Vite',          level: 85, icon: '⚡' },
+      { name: 'Git / GitHub', icon: <Github/> },
+      { name: 'Figma', icon: <Figma/>},
+      { name: 'Vite', icon: <Vite/> },
     ],
   },
 ];
@@ -46,7 +48,7 @@ function SkillBar({ name, level, icon, color }) {
         <span className="font-syne font-semibold text-sm text-[#ccc] group-hover:text-white transition-colors flex items-center gap-2">
           <span>{icon}</span>{name}
         </span>
-        <span className="font-syne font-bold text-xs" style={{ color }}>{level}%</span>
+        <span className="font-syne font-bold text-xs" style={{ color }}></span>
       </div>
       <div className="h-1.5 bg-[#1e1e1e] rounded-full overflow-hidden">
         <div
@@ -109,8 +111,8 @@ export default function Skills() {
         {/* Tech pills row */}
         <div className="mt-14 flex flex-wrap justify-center gap-3">
           {[
-            'React.js','Node.js','Express.js','MongoDB','Supabase','PostgreSQL',
-            'SQL','Tailwind CSS','TypeScript','REST APIs','Vite','Git',
+            'React.js', 'Node.js', 'Express.js', 'MongoDB', 'Supabase', 'PostgreSQL',
+            'SQL', 'Tailwind CSS', 'TypeScript', 'REST APIs', 'Vite', 'Git',
           ].map((t) => (
             <span
               key={t}
