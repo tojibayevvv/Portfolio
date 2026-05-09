@@ -1,29 +1,32 @@
 const projects = [
   {
     num: '01',
-    title: 'ShopSphere',
+    title: 'Finance Manager',
     description:
-      'A full-featured e-commerce platform with real-time inventory, cart management, Stripe payments, and an admin dashboard. Built for scale with optimistic UI updates.',
-    tags: ['React.js', 'Node.js', 'MongoDB', 'Stripe', 'Tailwind'],
+      'This project is designed for small and medium businesses in Uzbekistan to manage their finances in a centralized and efficient way. It enables users to log income and expenses via a Telegram bot using text or voice messages, while providing a web dashboard for real-time monitoring and analysis.',
+    tags: ['React.js', 'Node.js', 'Supabase', 'Nodemon', 'Telegram Bot'],
     accent: '#FF4D00',
-    link: '#',
-    github: '#',
+    link: 'https://finance-project-365.vercel.app/',
+    github: 'https://github.com/tojibayevvv/finance-project-365',
   },
   {
     num: '02',
-    title: 'TaskFlow',
+    title: 'InClean',
     description:
-      'A Notion-inspired productivity app with drag-and-drop boards, real-time collaboration via Supabase Realtime, and rich text editing. Handles multi-user workspaces.',
+      'InClean.lt is a professional cleaning service dedicated to delivering high-quality cleaning solutions for homes, apartments, offices, and post-construction buildings. We provide reliable, efficient, and detail-oriented cleaning services tailored to meet the needs of both residential and commercial clients, ensuring every space is spotless, fresh, and comfortable.',
     tags: ['React.js', 'Supabase', 'PostgreSQL', 'DnD Kit'],
     accent: '#FFD600',
-    link: '#',
+    link: 'https://inclean.lt/',
     github: '#',
   },
   {
     num: '03',
-    title: 'DataLens Dashboard',
+    title: 'Aqlli Bozor (AI based)',
     description:
-      'An analytics dashboard for visualizing business KPIs with interactive charts, date range filters, CSV exports, and role-based access control.',
+      `AI.AqlliBozor.uz is a smart digital management platform created to modernize and optimize traditional marketplaces across Uzbekistan. Developed in collaboration with a republic organization, the system helps bazaar administrations track daily income from vendors, monitor financial activity, and generate detailed analytics on money flow — including daily, monthly, and annual reports.
+
+      By introducing transparency, automation, and real-time financial insights, AI.AqlliBozor.uz has significantly increased marketplace efficiency and revenue generation. In many markets, the platform helped increase revenue by 2x, and in some cases up to 4x, creating substantial economic impact and higher government revenue through improved financial control and reporting.
+      `,
     tags: ['React.js', 'Express.js', 'SQL', 'Recharts', 'JWT'],
     accent: '#22C55E',
     link: '#',
@@ -31,9 +34,9 @@ const projects = [
   },
   {
     num: '04',
-    title: 'DevConnect API',
+    title: 'Xbuild',
     description:
-      'A RESTful social API for developers — posts, comments, followers, notifications, and JWT auth. Includes rate limiting, input sanitization, and full Swagger docs.',
+      'XBuild is a SaaS-based CRM & ERP platform designed for construction companies and urban development businesses. The system helps companies manage employees, track expenses, organize projects, and streamline daily operations through a centralized digital solution. Originally created from a friend’s idea to support urban developers, XBuild has grown into a successful platform generating over $5,000 in annual revenue.',
     tags: ['Node.js', 'Express.js', 'MongoDB', 'JWT', 'Swagger'],
     accent: '#818CF8',
     link: '#',
@@ -41,9 +44,9 @@ const projects = [
   },
   {
     num: '05',
-    title: 'ChatVibe',
+    title: 'Navro',
     description:
-      'Real-time chat application with rooms, direct messages, read receipts, and file sharing. Implemented with Socket.io and Supabase Storage for media uploads.',
+      'Navro is a modern rental platform designed to help users easily find apartments and houses for both living and vacation stays. The platform connects property owners with renters through a simple and user-friendly experience, offering convenient search, property listings, and booking solutions for comfortable short-term and long-term rentals.',
     tags: ['React.js', 'Socket.io', 'Node.js', 'Supabase'],
     accent: '#F43F5E',
     link: '#',
@@ -51,9 +54,9 @@ const projects = [
   },
   {
     num: '06',
-    title: 'Portfolio v1',
+    title: 'Rest API',
     description:
-      'Previous iteration of this portfolio — a minimalist glassmorphism design. Archived but open-sourced as a learning reference for aspiring devs.',
+      'User Service API is a RESTful API project built to demonstrate my Node.js backend development skills. The service was developed using Node.js, Express, TypeScript, MongoDB, and JWT authentication, focusing on secure and scalable user management. The API includes user registration and authentication, JWT-based authorization, role-based access control, user retrieval by ID, admin-only access to all users, and user blocking functionality. This project showcases my experience in backend architecture, authentication systems, database integration, and API development best practices.',
     tags: ['React.js', 'Tailwind CSS', 'Framer Motion'],
     accent: '#FF4D00',
     link: '#',
@@ -68,6 +71,7 @@ function ArrowIcon() {
     </svg>
   );
 }
+
 function GithubIcon() {
   return (
     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
