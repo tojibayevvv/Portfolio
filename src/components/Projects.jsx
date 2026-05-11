@@ -29,7 +29,7 @@ const projects = [
       `,
     tags: ['React.js', 'Express.js', 'SQL', 'Recharts', 'JWT'],
     accent: '#22C55E',
-    link: '#',
+    link: 'https://ai.aqllibozor.uz',
     github: '#',
   },
   {
@@ -39,7 +39,7 @@ const projects = [
       'XBuild is a SaaS-based CRM & ERP platform designed for construction companies and urban development businesses. The system helps companies manage employees, track expenses, organize projects, and streamline daily operations through a centralized digital solution. Originally created from a friend’s idea to support urban developers, XBuild has grown into a successful platform generating over $5,000 in annual revenue.',
     tags: ['Node.js', 'Express.js', 'MongoDB', 'JWT', 'Swagger'],
     accent: '#818CF8',
-    link: '#',
+    link: 'https://xbuild.uz/',
     github: '#',
   },
   {
@@ -49,7 +49,7 @@ const projects = [
       'Navro is a modern rental platform designed to help users easily find apartments and houses for both living and vacation stays. The platform connects property owners with renters through a simple and user-friendly experience, offering convenient search, property listings, and booking solutions for comfortable short-term and long-term rentals.',
     tags: ['React.js', 'Socket.io', 'Node.js', 'Supabase'],
     accent: '#F43F5E',
-    link: '#',
+    link: 'https://xbuild-five.vercel.app',
     github: '#',
   },
   {
@@ -60,6 +60,16 @@ const projects = [
     tags: ['React.js', 'Tailwind CSS', 'Framer Motion'],
     accent: '#FF4D00',
     link: '#',
+    github: '#',
+  },
+  {
+    num: '07',
+    title: 'Beauty Point',
+    description:
+      'Beauty Pint is a modern web platform for showcasing beauty products, including skincare, makeup, and personal care items. It features a clean UI, responsive design, and smooth navigation, allowing users to explore products easily and efficiently.The project highlights strong frontend development skills, with a focus on performance, usability, and scalable interface design.',
+    tags: ['React.js', 'Tailwind CSS', 'Framer Motion'],
+    accent: '#FF4D00',
+    link: 'https://cosmetic-nine-wine.vercel.app/',
     github: '#',
   },
 ];
@@ -156,6 +166,7 @@ export default function Projects() {
                 <div className="flex items-center gap-4 mt-6 pt-5 border-t border-white/5">
                   <a
                     href={link}
+                    target="_blank"
                     className="inline-flex items-center gap-2 font-syne font-bold text-xs uppercase tracking-wider transition-colors"
                     style={{ color: accent }}
                   >
