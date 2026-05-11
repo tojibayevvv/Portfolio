@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const projects = [
   {
     num: '01',
@@ -54,16 +56,6 @@ const projects = [
   },
   {
     num: '06',
-    title: 'Rest API',
-    description:
-      'User Service API is a RESTful API project built to demonstrate my Node.js backend development skills. The service was developed using Node.js, Express, TypeScript, MongoDB, and JWT authentication, focusing on secure and scalable user management. The API includes user registration and authentication, JWT-based authorization, role-based access control, user retrieval by ID, admin-only access to all users, and user blocking functionality. This project showcases my experience in backend architecture, authentication systems, database integration, and API development best practices.',
-    tags: ['React.js', 'Tailwind CSS', 'Framer Motion'],
-    accent: '#FF4D00',
-    link: '#',
-    github: '#',
-  },
-  {
-    num: '07',
     title: 'Beauty Point',
     description:
       'Beauty Pint is a modern web platform for showcasing beauty products, including skincare, makeup, and personal care items. It features a clean UI, responsive design, and smooth navigation, allowing users to explore products easily and efficiently.The project highlights strong frontend development skills, with a focus on performance, usability, and scalable interface design.',
@@ -91,6 +83,15 @@ function GithubIcon() {
 }
 
 export default function Projects() {
+  const [expanded, setExpanded] = useState({});
+
+  const toggleExpand = (id) => {
+    setExpanded((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
   return (
     <section id="projects" className="py-28 relative overflow-hidden">
       <div className="absolute w-80 h-80 rounded-full bg-yellow-500/6 blur-[120px] right-0 top-1/2 pointer-events-none" />
@@ -113,75 +114,90 @@ export default function Projects() {
 
         {/* Projects grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map(({ num, title, description, tags, accent, link, github }) => (
-            <div
-              key={num}
-              className="group bg-[#111] border border-white/6 hover:border-white/12 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(0,0,0,0.5)] flex flex-col"
-            >
-              {/* Thumb */}
-              <div className="relative h-48 bg-[#0e0e0e] flex items-center justify-center border-b border-white/5 overflow-hidden">
-                {/* Background glow */}
+          {projects.map(({ num, title, description, tags, accent, link, github }) => {
+            const isExpanded = expanded[num];
+            return (
+              (
                 <div
-                  className="absolute w-40 h-40 rounded-full blur-[60px] opacity-20 group-hover:opacity-35 transition-opacity"
-                  style={{ background: accent }}
-                />
-                {/* Large number */}
-                <span
-                  className="font-syne font-extrabold text-[6rem] leading-none select-none"
-                  style={{ color: `${accent}15` }}
+                  key={num}
+                  className="group bg-[#111] border border-white/6 hover:border-white/12 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(0,0,0,0.5)] flex flex-col"
                 >
-                  {num}
-                </span>
-                {/* Hover icon */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center border"
-                    style={{ background: `${accent}18`, borderColor: `${accent}40` }}
-                  >
-                    <svg className="w-6 h-6" style={{ color: accent }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                    </svg>
+                  {/* Thumb */}
+                  <div className="relative h-48 bg-[#0e0e0e] flex items-center justify-center border-b border-white/5 overflow-hidden">
+                    {/* Background glow */}
+                    <div
+                      className="absolute w-40 h-40 rounded-full blur-[60px] opacity-20 group-hover:opacity-35 transition-opacity"
+                      style={{ background: accent }}
+                    />
+                    {/* Large number */}
+                    <span
+                      className="font-syne font-extrabold text-[6rem] leading-none select-none"
+                      style={{ color: `${accent}15` }}
+                    >
+                      {num}
+                    </span>
+                    {/* Hover icon */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div
+                        className="w-14 h-14 rounded-2xl flex items-center justify-center border"
+                        style={{ background: `${accent}18`, borderColor: `${accent}40` }}
+                      >
+                        <svg className="w-6 h-6" style={{ color: accent }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="font-syne font-extrabold text-lg text-white mb-3">{title}</h3>
+                    <p
+                      className={`text-[#666] text-sm leading-relaxed flex-1 ${isExpanded ? "line-clamp-none" : "line-clamp-3"
+                        }`}
+                    >
+                      {description}
+                    </p>
+                    <button
+                      onClick={() => toggleExpand(num)}
+                      className="mt-2 text-blue-500 hover:underline"
+                    >
+                      {isExpanded ? "See less" : "See more"}
+                    </button>
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mt-5">
+                      {tags.map((t) => (
+                        <span
+                          key={t}
+                          className="font-syne font-bold text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-white/5 border border-white/8 text-[#888]"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Links */}
+                    <div className="flex items-center gap-4 mt-6 pt-5 border-t border-white/5">
+                      <a
+                        href={link}
+                        target="_blank"
+                        className="inline-flex items-center gap-2 font-syne font-bold text-xs uppercase tracking-wider transition-colors"
+                        style={{ color: accent }}
+                      >
+                        Live Demo <ArrowIcon />
+                      </a>
+                      <a
+                        href={github}
+                        className="inline-flex items-center gap-2 font-syne font-bold text-xs uppercase tracking-wider text-[#555] hover:text-white transition-colors ml-auto"
+                      >
+                        <GithubIcon /> Code
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="font-syne font-extrabold text-lg text-white mb-3">{title}</h3>
-                <p className="text-[#666] text-sm leading-relaxed flex-1">{description}</p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mt-5">
-                  {tags.map((t) => (
-                    <span
-                      key={t}
-                      className="font-syne font-bold text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-white/5 border border-white/8 text-[#888]"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Links */}
-                <div className="flex items-center gap-4 mt-6 pt-5 border-t border-white/5">
-                  <a
-                    href={link}
-                    target="_blank"
-                    className="inline-flex items-center gap-2 font-syne font-bold text-xs uppercase tracking-wider transition-colors"
-                    style={{ color: accent }}
-                  >
-                    Live Demo <ArrowIcon />
-                  </a>
-                  <a
-                    href={github}
-                    className="inline-flex items-center gap-2 font-syne font-bold text-xs uppercase tracking-wider text-[#555] hover:text-white transition-colors ml-auto"
-                  >
-                    <GithubIcon /> Code
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
+              )
+            )
+          })}
         </div>
 
         {/* CTA */}
